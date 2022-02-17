@@ -145,9 +145,12 @@ define(["require", "exports", "@syncfusion/ej2-navigations", "@syncfusion/ej2-ba
         Toolbar.prototype.toolbarCreateHandler = function () {
             if (!ej2_base_1.isNullOrUndefined(ej2_base_1.select('#' + this.getId('SortBy'), this.parent.element))) {
                 var items = [
-                    { id: this.getPupupId('name'), text: utility_1.getLocaleText(this.parent, 'Name'), iconCss: CLS.TB_OPTION_DOT },
-                    { id: this.getPupupId('size'), text: utility_1.getLocaleText(this.parent, 'Size') },
-                    { id: this.getPupupId('date'), text: utility_1.getLocaleText(this.parent, 'DateModified') },
+                    { id: this.getPupupId('name'), text: utility_1.getLocaleText(this.parent, 'Name'),
+                        iconCss: this.parent.sortBy === 'name' ? CLS.TB_OPTION_DOT : '' },
+                    { id: this.getPupupId('size'), text: utility_1.getLocaleText(this.parent, 'Size'),
+                        iconCss: this.parent.sortBy === 'size' ? CLS.TB_OPTION_DOT : '' },
+                    { id: this.getPupupId('date'), text: utility_1.getLocaleText(this.parent, 'DateModified'),
+                        iconCss: this.parent.sortBy === '_fm_modified' ? CLS.TB_OPTION_DOT : '' },
                     { separator: true },
                     { id: this.getPupupId('ascending'), text: utility_1.getLocaleText(this.parent, 'Ascending'),
                         iconCss: this.parent.sortOrder === 'Ascending' ? CLS.TB_OPTION_TICK : '' },

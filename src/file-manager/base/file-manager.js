@@ -50,7 +50,6 @@ define(["require", "exports", "@syncfusion/ej2-base", "@syncfusion/ej2-base", "@
             _this.uploadItem = [];
             _this.deleteRecords = [];
             _this.isFile = false;
-            _this.sortBy = 'name';
             _this.isCut = false;
             _this.isSearchCut = false;
             _this.isSearchDrag = false;
@@ -773,6 +772,13 @@ define(["require", "exports", "@syncfusion/ej2-base", "@syncfusion/ej2-base", "@
                         utility_1.refresh(this);
                         this.notify(events.sortByChange, {});
                         break;
+                    case 'sortBy':
+                        utility_1.refresh(this);
+                        this.notify(events.sortByChange, {});
+                        if (this.view === 'Details') {
+                            this.notify(events.sortColumn, {});
+                        }
+                        break;
                     case 'popupTarget':
                         if (this.uploadDialogObj) {
                             this.uploadDialogObj.target = newProp.popupTarget;
@@ -1156,6 +1162,9 @@ define(["require", "exports", "@syncfusion/ej2-base", "@syncfusion/ej2-base", "@
         __decorate([
             ej2_base_2.Property('Ascending')
         ], FileManager.prototype, "sortOrder", void 0);
+        __decorate([
+            ej2_base_2.Property('name')
+        ], FileManager.prototype, "sortBy", void 0);
         __decorate([
             ej2_base_2.Complex({}, index_1.ToolbarSettings)
         ], FileManager.prototype, "toolbarSettings", void 0);
